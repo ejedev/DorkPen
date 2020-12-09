@@ -1,18 +1,19 @@
 # DorkPen
 A simple pentesting tool to find information and exposed files on a target website using google dorks.
 
-This tool tests a variety of dorks to try and find relevant information for bug bounties and pentesting.
+This tool tests a variety of dorks to try and find relevant information for bug bounties and pentesting. It will print out findings along the way as it searches.
 
 ## Usage
 
 Basic use with no verbose logging.
 
-`python3 DorkPen.py --url google.com --resultcount 10`
+`python3 DorkPen.py --url google.com --resultcount 10 --wait 5`
 
 Use `Dorkpen.py -h` to view the options.
 
 ```
-usage: DorkPen.py [-h] --url URL --resultcount RESULTCOUNT [--verbose]
+usage: DorkPen.py [-h] --url URL --resultcount RESULTCOUNT --wait WAIT
+                  [--verbose]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -20,6 +21,8 @@ optional arguments:
   --resultcount RESULTCOUNT
                         The maximum amount of results to try. Higher numbers
                         will impact performance
+  --wait WAIT           The time to wait (in seconds) between requests. Use
+                        higher numbers to avoid 429 timeouts.
   --verbose             Verbose testing
 ```
 
@@ -31,7 +34,11 @@ Libraries found in requirements.txt
 
 ## Known issues
 
-429 timeout from too many requests. Solution is to wait a bit. There is the potential to add proxy support in the future. You can also mitigate this by lowering the result count to ~5.
+429 timeout from too many requests. Solution is to wait a bit. There is the potential to add proxy support in the future. You can also mitigate this by doing some of the following:
+
+* Use a VPN
+* Change the resultcount to ~5
+* Increase the wait time to around 30-50 seconds. This will be slow but is almost guarenteed to work.
 
 ## Custom/new dorks
 
