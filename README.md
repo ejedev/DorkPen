@@ -26,11 +26,12 @@ optional arguments:
 ## Requirements
 
 Python 3.x
+
 Libraries found in requirements.txt
 
 ## Known issues
 
-429 timeout from too many requests. Solution is to wait a bit. There is the potential to add proxy support in the future.
+429 timeout from too many requests. Solution is to wait a bit. There is the potential to add proxy support in the future. You can also mitigate this by lowering the result count to ~5.
 
 ## Custom/new dorks
 
