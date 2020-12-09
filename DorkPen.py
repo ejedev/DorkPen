@@ -1,4 +1,4 @@
-from googlesearch import search
+import googlesearch
 import sys
 import argparse
 
@@ -18,6 +18,8 @@ parser.add_argument('--url',
                     help='The URL to test (ex: google.com)', required=True)
 parser.add_argument('--resultcount',
                     help='The maximum amount of results to try. Higher numbers will impact performance', type=int, required=True)
+parser.add_argument('--wait',
+                    help='The time to wait (in seconds) between requests. Use higher numbers to avoid 429 timeouts.', type=int, required=True)
 parser.add_argument('--verbose', action='store_true',
                     help='Verbose testing')
 results = parser.parse_args()
@@ -37,16 +39,20 @@ dorkDict = {"Exposed Documents": "ext:doc | ext:docx | ext:odt | ext:rtf | ext:s
 testingUrl = str(results.url)
 resultsnumber = int(results.resultcount)
 verbose = results.verbose
+waitTime = results.wait
 
 print("Searching....\n")
-for dork in dorkDict:
-    if verbose == True:
-        print("[Testing " + dork + "]")
-    results = []
-    finishedDork = "site:" + testingUrl + " " + dorkDict[dork]
-    for x in search(finishedDork, lang='en', num=resultsnumber, start=0, stop=resultsnumber, pause=2.0):
-        results.append(x)
-    if len(results) > 0:
-        print(colours.OKGREEN + "[" + dork + "]" + colours.ENDC)
-        for x in results:
-            print(x)
+try:
+    for dork in dorkDict:
+        if verbose == True:
+            print("[Testing " + dork + "]")
+        results = []
+        finishedDork = "site:" + testingUrl + " " + dorkDict[dork]
+        for x in googlesearch.search(finishedDork, lang='en', num=resultsnumber, start=0, stop=resultsnumber, pause=waitTime, user_agent=googlesearch.get_random_user_agent()):
+            results.append(x)
+        if len(results) > 0:
+            print(colours.OKGREEN + "[" + dork + "]" + colours.ENDC)
+            for x in results:
+                print(x)
+except Exception as e:
+    print(e)
