@@ -17,7 +17,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--url',
                     help='The URL to test (ex: google.com)', required=True)
 parser.add_argument('--resultcount',
-                    help='The maximum amount of results to try. Higher numbers will impact performance', type=int)
+                    help='The maximum amount of results to try. Higher numbers will impact performance', type=int, required=True)
 parser.add_argument('--verbose', action='store_true',
                     help='Verbose testing')
 results = parser.parse_args()
