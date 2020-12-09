@@ -36,3 +36,15 @@ Libraries found in requirements.txt
 ## Custom/new dorks
 
 If you want to add new dorks in feel free to make a PR! Otherwise you could just edit the file yourself to add some custom ones in.
+
+## Current tests
+
+* Directory listing (Index of)
+* Exposed Configuration File (xml, conf, cnf, reg, inf, rdp, cfg, txt, ora, ini, env)
+* Exposed Database File (sql, dbf, mdb)
+* Exposed Log File
+* Backup Files (bkf, bkp, bak, old, backup)
+* Login Pages
+* SQL Issues
+* PHP Issues
+* ID =
