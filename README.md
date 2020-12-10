@@ -46,6 +46,7 @@ If you want to add new dorks in feel free to make a PR! Otherwise you could just
 
 ## Current tests
 
+* Exposed Documents (doc, docx. odt, rtf, sxw, psw, ppt, pptx, pps, csv)
 * Directory listing (Index of)
 * Exposed Configuration File (xml, conf, cnf, reg, inf, rdp, cfg, txt, ora, ini, env)
 * Exposed Database File (sql, dbf, mdb)
@@ -55,3 +56,5 @@ If you want to add new dorks in feel free to make a PR! Otherwise you could just
 * SQL Issues
 * PHP Issues
 * ID =
+* Exposed Repository - Domain (git, svn, gitlab)
+* Exposed Repository - File (git, svn)
