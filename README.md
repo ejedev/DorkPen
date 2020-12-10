@@ -1,4 +1,4 @@
-# DorkPen
+# DorkPen 
 A simple pentesting tool to find information and exposed files on a target website using google dorks.
 
 This tool tests a variety of dorks to try and find relevant information for bug bounties and pentesting. It will print out findings along the way as it searches.
@@ -58,3 +58,5 @@ If you want to add new dorks in feel free to make a PR! Otherwise you could just
 * ID =
 * Exposed Repository - Domain (git, svn, gitlab)
 * Exposed Repository - File (git, svn)
+
+<a href="https://www.buymeacoffee.com/gbraad" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
