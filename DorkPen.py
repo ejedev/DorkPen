@@ -27,15 +27,22 @@ print(colours.OKCYAN + "DorkPen v0.1 by ejedev\n" + colours.ENDC)
 
 dorkDict = {"Exposed Documents": "ext:doc | ext:docx | ext:odt | ext:rtf | ext:sxw | ext:psw | ext:ppt | ext:pptx | ext:pps | ext:csv",
             "Directory Listing": "intitle:index.of",
-            "Exposed Configuration File": "ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:ini | ext:env",
+            "Exposed Configuration File": "ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:ini | ext:env | ext:htaccess",
             "Exposed Database File": "ext:sql | ext:dbf | ext:mdb",
             "Exposed Log File": "ext:log",
             "Backups": "ext:bkf | ext:bkp | ext:bak | ext:old | ext:backup",
             "Login page": " inurl:login | inurl:signin | intitle:Login | intitle:'sign in' | inurl:auth",
             "SQL Issues": "intext:'sql syntax near' | intext:'syntax error has occurred' | intext:'incorrect syntax near' | intext:'unexpected end of SQL command' | intext:'Warning: mysql_connect()' | intext:'Warning: mysql_query()' | intext:'Warning: pg_connect()'",
             "PHP Issues": "'PHP Parse error' | 'PHP Warning' | 'PHP Error'",
-            "ID =": "inurl:'id='"
+            "ID =": "inurl:'id='",
+            "Exposed Repository - Domain": "inurl:git | inurl:svn | inurl:gitlab"",
+            "Exposed Repository - File": "ext:git | ext:svn",
             }
+
+highSeverity = ['.conf', '.cnf', '.cfg', '.env', '.sql', '.dbf', '.mdb', '.log', '.bak', '.htaccess']
+
+mediumSeverity = ['.txt', '.csv', 'admin', 'git', 'svn', 'ini']
+
 testingUrl = str(results.url)
 resultsnumber = int(results.resultcount)
 verbose = results.verbose
@@ -53,6 +60,11 @@ try:
         if len(results) > 0:
             print(colours.OKGREEN + "[" + dork + "]" + colours.ENDC)
             for x in results:
-                print(x)
+                if bool([ele for ele in highSeverity if(ele in x)]):
+                    print(colours.FAIL + x + colours.ENDC)
+                elif bool([ele for ele in mediumSeverity if(ele in x)]):
+                    print(colours.WARNING + x + colours.ENDC)
+                else:
+                    print(x)
 except Exception as e:
     print(e)
