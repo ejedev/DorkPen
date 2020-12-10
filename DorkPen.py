@@ -35,7 +35,7 @@ dorkDict = {"Exposed Documents": "ext:doc | ext:docx | ext:odt | ext:rtf | ext:s
             "SQL Issues": "intext:'sql syntax near' | intext:'syntax error has occurred' | intext:'incorrect syntax near' | intext:'unexpected end of SQL command' | intext:'Warning: mysql_connect()' | intext:'Warning: mysql_query()' | intext:'Warning: pg_connect()'",
             "PHP Issues": "'PHP Parse error' | 'PHP Warning' | 'PHP Error'",
             "ID =": "inurl:'id='",
-            "Exposed Repository - Domain": "inurl:git | inurl:svn | inurl:gitlab"",
+            "Exposed Repository - Domain": "inurl:git | inurl:svn | inurl:gitlab",
             "Exposed Repository - File": "ext:git | ext:svn",
             }
 
